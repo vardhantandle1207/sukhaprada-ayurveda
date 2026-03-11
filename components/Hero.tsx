@@ -11,7 +11,7 @@ export default function Hero() {
 
       <div className="relative text-white max-w-3xl px-6">
 
-        <h1 className="text-5xl md:text-6xl mb-6 leading-tight">
+        <h1 className="text-4xl md:text-6xl mb-6 leading-tight">
           Holistic Healing
           <br />
           Through Ayurveda
@@ -21,7 +21,7 @@ export default function Hero() {
           Personalized Ayurvedic consultations and therapies focused on restoring balance and wellbeing.
         </p>
 
-        <button className="mt-8 px-7 py-3 bg-white text-green-900 rounded-full font-medium">
+        <button className="mt-8 px-6 py-3 bg-white text-[#2F5D50] rounded-full font-medium text-sm md:text-base">
           Book Consultation
         </button>
 
