@@ -14,7 +14,7 @@ export default function Hero() {
         <h1 className="text-4xl md:text-6xl mb-6 leading-tight">
           Holistic Healing
           <br />
-          Through Ayurveda
+          TEST WEBSITE
         </h1>
 
         <p className="text-lg opacity-90">
