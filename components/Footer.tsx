@@ -30,7 +30,7 @@ export default function Footer() {
             Phone: Coming Soon
           </p>
           <p className="text-gray-600">
-            Email: info@sukhaprada.com
+            Email: sukhapradaayu@gmail.com
           </p>
         </div>
 
