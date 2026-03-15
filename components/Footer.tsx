@@ -27,7 +27,7 @@ export default function Footer() {
         <div>
           <h3 className="text-lg mb-3">Contact</h3>
           <p className="text-gray-600">
-            Phone: Coming Soon
+            Phone: +91 9652073148
           </p>
           <p className="text-gray-600">
             Email: sukhapradaayu@gmail.com

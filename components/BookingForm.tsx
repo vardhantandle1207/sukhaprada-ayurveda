@@ -3,96 +3,144 @@
 import { useState } from "react"
 
 export default function BookingForm() {
+  const [form, setForm] = useState({
+    name: "",
+    phone: "",
+    age: "",
+    gender: "",
+    date: "",
+    time: "",
+    mode: "",
+    message: ""
+  })
 
-  const [date, setDate] = useState("")
-  const [time, setTime] = useState("")
-
-  const slots = [
-    "10:00 AM",
-    "10:30 AM",
-    "11:00 AM",
-    "11:30 AM",
-    "4:00 PM",
-    "4:30 PM",
-    "5:00 PM",
-    "5:30 PM"
+  const times = [
+    "08:00 AM","09:00 AM","10:00 AM","11:00 AM","12:00 PM","01:00 PM",
+    "04:00 PM","05:00 PM","06:00 PM","07:00 PM","08:00 PM","09:00 PM"
   ]
 
+  const handleChange = (e:any) => {
+    setForm({...form, [e.target.name]: e.target.value})
+  }
+
+  const handleSubmit = (e:any) => {
+    e.preventDefault()
+
+    const text = `
+New Appointment
+Name: ${form.name}
+Phone: ${form.phone}
+Age: ${form.age}
+Gender: ${form.gender}
+Mode: ${form.mode}
+Date: ${form.date}
+Time: ${form.time}
+Message: ${form.message}
+`
+
+    const whatsapp = `https://wa.me/919652073148?text=${encodeURIComponent(text)}`
+    window.open(whatsapp,"_blank")
+  }
+
   return (
-    <div className="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-sm">
+    <section id="book" className="py-20 bg-[#F6F3EC]">
+      <div className="max-w-2xl mx-auto px-6">
 
-      <h3 className="text-2xl mb-6 text-center">
-        Schedule Appointment
-      </h3>
+        <h2 className="text-4xl font-serif text-center mb-10">
+          Book Appointment
+        </h2>
 
-      {/* Date Picker */}
-      <div className="mb-6">
-        <label className="block mb-2 text-sm">
-          Select Date
-        </label>
+        <form onSubmit={handleSubmit} className="space-y-5">
 
-        <input
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          className="w-full border p-3 rounded-md"
-        />
-      </div>
+          <input
+            name="name"
+            placeholder="Full Name"
+            required
+            className="w-full border p-3 rounded"
+            onChange={handleChange}
+          />
 
-      {/* Time Slots */}
-      <div className="mb-6">
-        <label className="block mb-3 text-sm">
-          Select Time
-        </label>
+          <input
+            name="phone"
+            placeholder="Phone Number"
+            required
+            className="w-full border p-3 rounded"
+            onChange={handleChange}
+          />
 
-        <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-2 gap-4">
+            <input
+              name="age"
+              placeholder="Age"
+              required
+              className="border p-3 rounded"
+              onChange={handleChange}
+            />
 
-          {slots.map((slot) => (
-
-            <button
-              key={slot}
-              onClick={() => setTime(slot)}
-              className={`border rounded-md py-2 text-sm
-              ${time === slot ? "bg-[#2F5D50] text-white" : "bg-white"}`}
+            <select
+              name="gender"
+              required
+              className="border p-3 rounded"
+              onChange={handleChange}
             >
-              {slot}
-            </button>
+              <option value="">Gender</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+            </select>
+          </div>
 
-          ))}
+          <select
+            name="mode"
+            required
+            className="w-full border p-3 rounded"
+            onChange={handleChange}
+          >
+            <option value="">Consultation Mode</option>
+            <option>Offline (Clinic Visit)</option>
+            <option>Online Consultation</option>
+          </select>
 
-        </div>
+          <input
+            type="date"
+            name="date"
+            required
+            className="w-full border p-3 rounded"
+            onChange={handleChange}
+          />
+
+          <select
+            name="time"
+            required
+            className="w-full border p-3 rounded"
+            onChange={handleChange}
+          >
+            <option value="">Select Time</option>
+            {times.map((t,i)=>(
+              <option key={i}>{t}</option>
+            ))}
+          </select>
+
+          <textarea
+            name="message"
+            placeholder="Health concern (optional)"
+            className="w-full border p-3 rounded"
+            onChange={handleChange}
+          />
+
+          <button
+            className="w-full bg-[#2F5D50] text-white py-3 rounded-lg hover:opacity-90"
+          >
+            Book via WhatsApp
+          </button>
+
+        </form>
+
+        <p className="text-center text-sm mt-4 text-gray-600">
+          Clinic Timings: 8 AM – 1 PM & 4 PM – 9 PM
+        </p>
+
       </div>
-
-      {/* Name */}
-      <div className="mb-4">
-        <label className="block mb-2 text-sm">
-          Name
-        </label>
-
-        <input
-          type="text"
-          placeholder="Your name"
-          className="w-full border p-3 rounded-md"
-        />
-      </div>
-
-      {/* Phone */}
-      <div className="mb-6">
-        <label className="block mb-2 text-sm">
-          Phone
-        </label>
-
-        <input
-          type="tel"
-          placeholder="Phone number"
-          className="w-full border p-3 rounded-md"
-        />
-      </div>
-
-      <button className="w-full bg-[#2F5D50] text-white py-3 rounded-full">
-        Confirm Appointment
-      </button>
-
-    </div>
+    </section>
   )
 }

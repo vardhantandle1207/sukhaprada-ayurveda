@@ -21,9 +21,11 @@ export default function Hero() {
           Personalized Ayurvedic consultations and therapies focused on restoring balance and wellbeing.
         </p>
 
-        <button className="mt-8 px-6 py-3 bg-white text-[#2F5D50] rounded-full font-medium text-sm md:text-base">
+        <a 
+        href='#book'
+        className="mt-8 px-6 py-3 bg-white text-[#2F5D50] rounded-full font-medium text-sm md:text-base">
           Book Consultation
-        </button>
+        </a>
 
       </div>
 
