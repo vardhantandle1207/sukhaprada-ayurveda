@@ -69,6 +69,8 @@ Message: ${form.message}
           Book Appointment
         </h2> */}
 
+        
+
         <form onSubmit={handleSubmit} className="space-y-5">
 
           <input
@@ -168,10 +170,7 @@ Message: ${form.message}
 
         </form>
 
-        <p className="text-center text-sm mt-4 text-gray-600">
-          Clinic Timings: 8 AM – 1 PM & 4 PM – 9 PM
-        </p>
-
+        
       </div>
     </section>
   )
