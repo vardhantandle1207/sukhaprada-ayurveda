@@ -17,15 +17,18 @@ export default function Hero() {
            WEBSITE NOT READY YET
         </h1>
 
-        <p className="text-lg opacity-90">
+        <p className="text-lg opacity-90 mt-6 mb-8">
           Personalized Ayurvedic consultations and therapies focused on restoring balance and wellbeing.
         </p>
 
-        <a 
-        href='#book'
-        className="mt-8 px-6 py-3 bg-white text-[#2F5D50] rounded-full font-medium text-sm md:text-base">
-          Book Consultation
-        </a>
+        <div className="mt-8">
+          <a
+            href="#book"
+            className="inline-block px-8 py-3 bg-white text-[#2F5D50] rounded-full font-medium"
+          >
+            Book Consultation
+          </a>
+        </div>
 
       </div>
 

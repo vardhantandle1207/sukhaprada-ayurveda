@@ -16,12 +16,31 @@ export default function BookingForm() {
 
   const times = [
     "08:00 AM","09:00 AM","10:00 AM","11:00 AM","12:00 PM","01:00 PM",
-    "04:00 PM","05:00 PM","06:00 PM","07:00 PM","08:00 PM","09:00 PM"
+    "04:00 PM","05:00 PM","06:00 PM","07:00 PM","08:00 PM"
   ]
 
   const handleChange = (e:any) => {
     setForm({...form, [e.target.name]: e.target.value})
   }
+
+  const sendEmail = () => {
+
+  const subject = "New Appointment Request from " + form.name
+
+  const body = `
+Name: ${form.name}
+Phone: ${form.phone}
+Age: ${form.age}
+Gender: ${form.gender}
+Mode: ${form.mode}
+Date: ${form.date}
+Time: ${form.time}
+Message: ${form.message}
+`
+
+  window.location.href =
+    `mailto:sukhapradaayu@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+}
 
   const handleSubmit = (e:any) => {
     e.preventDefault()
@@ -38,7 +57,7 @@ Time: ${form.time}
 Message: ${form.message}
 `
 
-    const whatsapp = `https://wa.me/919652073148?text=${encodeURIComponent(text)}`
+    const whatsapp = `https://wa.me/9440203588?text=${encodeURIComponent(text)}`
     window.open(whatsapp,"_blank")
   }
 
@@ -46,9 +65,9 @@ Message: ${form.message}
     <section id="book" className="py-20 bg-[#F6F3EC]">
       <div className="max-w-2xl mx-auto px-6">
 
-        <h2 className="text-4xl font-serif text-center mb-10">
+        {/* <h2 className="text-4xl font-serif text-center mb-10">
           Book Appointment
-        </h2>
+        </h2> */}
 
         <form onSubmit={handleSubmit} className="space-y-5">
 
@@ -128,11 +147,24 @@ Message: ${form.message}
             onChange={handleChange}
           />
 
+          <div className="flex gap-4">
+
           <button
-            className="w-full bg-[#2F5D50] text-white py-3 rounded-lg hover:opacity-90"
+          type="submit"
+          className="w-full bg-[#2F5D50] text-white py-3 rounded-lg"
           >
-            Book via WhatsApp
+          Book via WhatsApp
           </button>
+
+          <button
+          type="button"
+          onClick={sendEmail}
+          className="w-full border border-[#2F5D50] text-[#2F5D50] py-3 rounded-lg"
+          >
+          Send via Email
+          </button>
+
+          </div>
 
         </form>
 

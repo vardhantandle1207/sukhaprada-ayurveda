@@ -52,6 +52,15 @@ export default function Services() {
             </p>
           </div>
 
+          <div className="bg-white p-8 rounded-lg shadow-sm">
+            <h3 className="text-xl mb-3">Cancer Treatment</h3>
+            <p className="text-gray-600">
+              Ayurvedic supportive therapies aimed at improving immunity, strength, and quality of life alongside conventional treatments.
+            </p>
+          </div>
+
+          
+
         </div>
 
       </div>
