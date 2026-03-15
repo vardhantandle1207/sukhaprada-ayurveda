@@ -9,8 +9,8 @@ export default function Navbar() {
           <Image
             src="/sukhaprada_logo.png"
             alt="Sukhaprada Ayurveda"
-            width={36}
-            height={36}
+            width={46}
+            height={46}
           />
 
           <h1 className="text-xl md:text-2xl font-semibold">
@@ -18,11 +18,15 @@ export default function Navbar() {
           </h1>
         </div>
 
-        <div className="flex gap-6 md:gap-8 text-sm md:text-base">
+        <div className="hidden md:flex gap-8 text-base">
           <a href="#about">About</a>
           <a href="#services">Services</a>
           <a href="#book">Book</a>
           <a href="#contact">Contact</a>
+        </div>
+
+        <div className="md:hidden text-xl">
+          ☰
         </div>
 
       </div>
