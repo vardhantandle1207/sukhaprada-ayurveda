@@ -18,12 +18,12 @@ export default function Navbar() {
           <Image
             src="/sukhaprada_logo.png"
             alt="Sukhaprada Ayurveda"
-            width={70}
-            height={70}
+            width={60}
+            height={60}
           />
 
           {/* Centered title */}
-          <h1 className="absolute left-1/2 -translate-x-1/2 text-xl md:text-2xl font-serif">
+          <h1 className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 text-xl md:text-2xl font-serif">
             Sukhaprada Ayurveda
           </h1>
 
